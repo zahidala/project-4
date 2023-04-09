@@ -24,3 +24,4 @@ router.delete("/plan/delete" ,isLoggedIn, planCntrl.plan_delete_get)
 module.exports = router;
 
 
+module.exports = router
