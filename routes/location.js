@@ -12,12 +12,9 @@ router.use(methodOverride('_method'));
 const isLoggedIn = require("../helper/isLoggedIn");
 
 // Controller
-const reviewCntrl = require("../controllers/review");
+const locationCntrl = require("../controllers/location");
 
 // Routes
-router.post("/review/add" , reviewCntrl.review_create_get);
-router.put("/review/edit" , reviewCntrl.updateReview);
-router.delete("/review/delete" ,isLoggedIn, reviewCntrl.deleteReview);
-router.get("/review/list" ,isLoggedIn, reviewCntrl.getReview);
+router.post("/location/list" ,isLoggedIn, locationCntrl.getLocations);
 
-module.exports = router
+module.exports = router;
