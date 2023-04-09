@@ -20,3 +20,4 @@ router.post("/review/edit" ,isLoggedIn, reviewCntrl.updateReview);
 router.post("/review/delete" ,isLoggedIn, reviewCntrl.deleteReview);
 router.post("/review/list" ,isLoggedIn, reviewCntrl.getReview);
 
+module.exports = router;
