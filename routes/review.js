@@ -16,7 +16,8 @@ const reviewCntrl = require("../controllers/review");
 
 // Routes
 router.post("/review/add" ,isLoggedIn, reviewCntrl.review_create_get);
-router.post("/review/edit" ,isLoggedIn, reviewCntrl.updateReview);
-router.post("/review/delete" ,isLoggedIn, reviewCntrl.deleteReview);
-router.post("/review/list" ,isLoggedIn, reviewCntrl.getReview);
+router.put("/review/edit" ,isLoggedIn, reviewCntrl.updateReview);
+router.delete("/review/delete" ,isLoggedIn, reviewCntrl.deleteReview);
+router.get("/review/list" ,isLoggedIn, reviewCntrl.getReview);
 
+module.exports = router
