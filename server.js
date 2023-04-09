@@ -10,14 +10,13 @@ const app = express()
 
 const authRoute = require('./routes/auth');
 const planRoute = require('./routes/plan');
-const indexRoute = require('./routes/index')
+const reviewRoute = require('./routes/review')
 
 
 //mount routes
 app.use('/', authRoute);
-app.use('/', planRoute)
-app.use('/', indexRoute);
-
+app.use('/', planRoute);
+app.use('/', reviewRoute);
 
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.mongoDBURL, 
