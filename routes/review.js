@@ -15,8 +15,8 @@ const isLoggedIn = require("../helper/isLoggedIn");
 const reviewCntrl = require("../controllers/review");
 
 // Routes
-router.post("/review/add" ,isLoggedIn, reviewCntrl.review_create_get);
-router.put("/review/edit" ,isLoggedIn, reviewCntrl.updateReview);
+router.post("/review/add" , reviewCntrl.review_create_get);
+router.put("/review/edit" , reviewCntrl.updateReview);
 router.delete("/review/delete" ,isLoggedIn, reviewCntrl.deleteReview);
 router.get("/review/list" ,isLoggedIn, reviewCntrl.getReview);
 
