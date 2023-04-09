@@ -7,10 +7,8 @@ const port = process.env.PORT
 
 const app = express()
 
-const indexRoute = require('./routes/flight')
 const authRoute = require('./routes/auth');
 
-app.use('/', indexRoute)
 app.use('/', authRoute);
 
 mongoose.set('strictQuery', false)
