@@ -1,7 +1,12 @@
 const mongoose = require('mongoose')
 const reviewSchema = mongoose.Schema({
-    title: String,
-    description: String,
+    title: 
+    {
+        type:String, required: true,
+    },
+    description: {
+        type:String, required: true,
+    },
     rating: Number,
     location: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -11,7 +16,9 @@ const reviewSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    image: String
+    image: {
+        type: String
+    }
 }, 
 { timestamps: true})
 

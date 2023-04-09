@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+
 require('dotenv').config()
 
 const port = process.env.PORT
@@ -9,10 +10,14 @@ const app = express()
 
 const authRoute = require('./routes/auth');
 const planRoute = require('./routes/plan');
+const indexRoute = require('./routes/index')
 
 
+//mount routes
 app.use('/', authRoute);
 app.use('/', planRoute)
+app.use('/', indexRoute);
+
 
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.mongoDBURL, 
