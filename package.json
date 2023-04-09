@@ -18,7 +18,13 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.0",
+<<<<<<< HEAD
     "mongoose": "^7.0.3",
+=======
+    "method-override": "^3.0.0",
+    "mongoose": "^7.0.3",
+    "multer": "^1.4.5-lts.1",
+>>>>>>> 2e5ad3385120952e380cccbe5f95b4bfa19fc6fe
     "overload-protection": "^1.2.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
