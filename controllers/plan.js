@@ -55,7 +55,7 @@ exports.plan_update_put = (req, res) => {
     });
 }
 
-  // HTTP DELETE -  Plan
+  // HTTP DELETE -  Plan Delte
   exports.plan_delete_get = (req, res) => {
     console.log(req.query.id);
     Plan.findByIdAndDelete(req.query.id)
