@@ -8,8 +8,11 @@ const port = process.env.PORT
 const app = express()
 
 const authRoute = require('./routes/auth');
+const planRoute = require('./routes/plan');
+
 
 app.use('/', authRoute);
+app.use('/', planRoute)
 
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.mongoDBURL, 
