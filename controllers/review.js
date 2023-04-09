@@ -6,15 +6,13 @@ exports.review_create_get = async (req,res) => {
     const description = req.body
     const rating = req.body
 
+    console.log(req.body)
+
     try{
-        const review = newReview({
-            title,
-            description,
-            rating,
-            location: req.params.location_id,
-            user: req.user.id,
-            image:req.file ? req.file.filename : '',
-        })  
+
+        const review = new Review(req.body)
+        // review.location = "kkkkkkkk"
+
         await review.save()
         res.json({review})
     }

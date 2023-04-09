@@ -22,6 +22,7 @@ exports.plan_create_post = (req,res) =>{
 exports.plan_index_get = (req, res) => {
     Plan.findAll()
     .then(plans => {
+        console.log("test")
         res.json({plans:plans})
     })
     .catch(err => {
