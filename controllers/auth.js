@@ -3,6 +3,10 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const salt = 10;
 
+exports.auth_signup_get = (req, res) => {
+  res.render("auth/signup");
+};
+
 exports.auth_signup_post = (req, res) => {
     let user = new User(req.body);
 
@@ -25,6 +29,10 @@ exports.auth_signup_post = (req, res) => {
       });
 };
 
+exports.auth_signin_get = (req, res) => {
+  res.render("auth/signin");
+};
+
 exports.auth_signin_post = async (req, res) => {
     let { emailAddress, password } = req.body;
   
@@ -44,7 +52,7 @@ exports.auth_signin_post = async (req, res) => {
       console.log(user.password);
   
       if (!isMatch) {
-        return res.json({ message: "Password doesnot matched" });
+        return res.json({ message: "Password does not matched" });
       }
   
       // Generate JWT
