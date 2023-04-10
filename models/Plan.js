@@ -7,10 +7,10 @@ const planSchema = mongoose.Schema({
   description: {
     type: String, required: true,
   },
-  location: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Location', required: true,
-  },
+  // location: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Location', required: true,
+  // },
   startDate: {
     type: Date, required: true,
   },
