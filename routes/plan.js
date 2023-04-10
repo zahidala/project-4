@@ -15,8 +15,8 @@ const isLoggedIn = require("../helper/isLoggedIn");
 const planCntrl = require("../controllers/plan");
 
 // Routes
-router.post("/plan/add" , isLoggedIn, planCntrl.plan_create_post);
-router.get('/plan/index', isLoggedIn, planCntrl.plan_index_get);
+router.post("/plan/add" , planCntrl.plan_create_post);
+router.get('/plan/index', planCntrl.plan_index_get);
 router.get("plan/edit", isLoggedIn, planCntrl.plan_edit_get);
 router.put("/plan/update" , isLoggedIn, planCntrl.plan_update_put);
 router.delete("/plan/delete" ,isLoggedIn, planCntrl.plan_delete_get)

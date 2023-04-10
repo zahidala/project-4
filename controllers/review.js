@@ -28,66 +28,37 @@ exports.review_create_get = async (req,res) => {
 }
 
 
-exports.updateReview = async (req,res) => {
-    const title = req.body
-    const description = req.body
-    const rating = req.body
-const reviewFields = {}
-if(title) reviewFields.title = title
-if(description) reviewFields.description = description
-if(rating) reviewFields.rating = rating
-
-    try{
-        let review = await Review.findByIdAndUpdate(req.params.review_id)
-    if(!review){
-        return res.status(404).json({message: 'Review not found'})
-    }
-    if(review.user.toString()!== req.user.id){
-        return res.status(401).json({message: 'User not authorized'})
-
-    }
-    review = await Review.findByIdAndUpdate(req.params.id, 
-        {$set: reviewFields},
-        {new: true}
-        )
-    res.json({review})
-    }
-    catch(err){
+exports.review_update_put = (req, res) => {
+    console.log(req.body._id);
+    Review.findByIdAndUpdate(req.body._id, req.body, {new : true})
+    .then((review) => {
+        res.json({review})
+    })
+    .catch(err => {
         console.log(err)
-        res.send("error")
-    }
+    });
 }
 
-exports.deleteReview = async (req,res) => {
-    
-    try {
-        let review = await Review.findById(req.params.review_id)
-        if(!review){
-            return res.status(404).json({message: 'Review not found'})
-        }
-        if(review.user.toString()!== req.user.id){
-            return res.status(401).json({message: 'User not authorized'})
-    
-        }
-        await Review.findByIdAndRemove(req.params.review_id)
-        res.json({message: 'Review removed'})
-    }
 
-    catch(err){
-        console.log(err)
-        res.send("error")
-    }
-}
+  // HTTP DELETE -  review Delete
+  exports.review_delete_get = (req, res) => {
+    console.log(req.query.id);
+    Review.findByIdAndDelete(req.query.id)
+    .then((review)=>{
+        res.json({review})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+};
 
-exports.getReview = async (req,res) => {
-    
-    try {
-        const reviews = await Review.find({location: req.params.location_id}).populate('location', 'name')
-        res.json(reviews)
-    }
-
-    catch(err){
-        console.log(err)
-        res.send("error")
-    }
+// HTTP GET - reviews Index
+exports.review_index_get = (req, res) => {
+    Review.find().then(reviews => {
+        console.log("test")
+        res.json({reviews:reviews})
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
