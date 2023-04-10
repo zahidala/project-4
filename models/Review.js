@@ -8,17 +8,17 @@ const reviewSchema = mongoose.Schema({
         type:String, required: true,
     },
     rating: Number,
-    location: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Location'
-    }],
+    // location: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Location'
+    // }],
     createdAt: {
         type: Date,
         default: Date.now
     },
-    image: {
-        type: String
-    }
+    // image: {
+    //     type: String
+    // }
 }, 
 { timestamps: true})
 
