@@ -11,7 +11,12 @@ exports.review_create_get = async (req,res) => {
     try{
 
         const review = new Review(req.body)
-        // review.location = "kkkkkkkk"
+       
+        // review.title = title
+        // review.description = description
+        // review.rating = rating
+        // review.user = req.user.id
+        // review.location = req.params.location_id
 
         await review.save()
         res.json({review})
