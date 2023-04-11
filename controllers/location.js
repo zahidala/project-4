@@ -3,6 +3,7 @@ const Review = require('../models/Review')
 const Axios = require('axios')
 
 
+
 // Get locations by city and country
 exports.getLocations = async (req, res) => {
     const city = req.query.city;
