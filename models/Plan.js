@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const planSchema = mongoose.Schema({
   name: {
     type: String, required: true,
-  // }, we dont need the description
+  },
   // description: {
   //   type: String, required: true,
   // },
