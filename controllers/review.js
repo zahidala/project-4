@@ -1,30 +1,19 @@
 const Review = require('../models/Review')
 const Location = require('../models/Location')
 
-exports.review_create_get = async (req,res) => {
-    const title = req.body
-    const description = req.body
-    const rating = req.body
-
+exports.review_create_post = (req,res) => {
     console.log(req.body)
+    let review = new Review(req.body);
 
-    try{
-
-        const review = new Review(req.body)
-       
-        // review.title = title
-        // review.description = description
-        // review.rating = rating
-        // review.user = req.user.id
-        // review.location = req.params.location_id
-
-        await review.save()
-        res.json({review})
-    }
-    catch(err){
-   console.log(err)
-   res.send("error")
-    }
+    // Save author
+    review.save()
+    .then((reviews)=>{
+        res.json({reviews})
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later");
+    });
 }
 
 
