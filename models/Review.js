@@ -1,24 +1,29 @@
 const mongoose = require('mongoose')
 const reviewSchema = mongoose.Schema({
-    title: 
+    review: 
     {
         type:String, required: true,
     },
-    description: {
-        type:String, required: true,
-    },
-    rating: Number,
+    // description: {
+    //     type:String, required: true,
+    // },
+    // rating: Number,
     // location: [{
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: 'Location'
     // }],
-    createdAt: {
-        type: Date,
-        // default: Date.now
-    },
+    // createdAt: {
+    //     type: Date,
+    //     // default: Date.now
+    // },
     // image: {
     //     type: String
     // }
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
 }, 
 { timestamps: true})
 
