@@ -41,6 +41,20 @@ exports.plan_edit_get = (req, res) => {
     })
 }
 
+
+// HTTP GET - Load PLAN Edit Form
+exports.plan_by_userId = (req, res) => {
+    console.log("s",req.query.id)
+    Plan.find({user: req.query.id})
+    .then(plan => {
+        console.log(plan);
+        res.json({plan})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
 // HTTP PUT - plan Update
 exports.plan_update_put = (req, res) => {
     console.log(req.body._id);
