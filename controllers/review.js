@@ -62,3 +62,14 @@ exports.review_index_get = (req, res) => {
         console.log(err);
     })
 }
+
+// HTTP GET - Load REVIEW Edit Form
+exports.review_edit_get = (req, res) => {
+    Review.findById(req.query.id)
+    .then(review => {
+        res.json({review})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
